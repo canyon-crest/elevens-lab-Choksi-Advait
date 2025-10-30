@@ -1,6 +1,7 @@
 package Activity2;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -31,7 +32,14 @@ public class Deck2 {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck2(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		cards = new ArrayList<Card2>();
+		for (int i = 0; i < ranks.length; i++) {
+			for (int j = 0; j < suits.length; j++) {
+				Card2 x = new Card2(ranks[i],suits[j],values[i]);
+				cards.add(x);
+			}
+		}
+		size = cards.size();
 	}
 
 
@@ -40,8 +48,8 @@ public class Deck2 {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return true;
+		
+		return size<=0;
 	}
 
 	/**
@@ -50,7 +58,7 @@ public class Deck2 {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return -1;
+		return size;
 	}
 
 	/**
@@ -58,7 +66,7 @@ public class Deck2 {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Collections.shuffle(cards);
 	}
 
 	/**
@@ -67,8 +75,9 @@ public class Deck2 {
 	 *         previously dealt.
 	 */
 	public Card2 deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return new Card2("","",-1);
+		Card2 dealt = cards.get(size-1);
+		size--;
+		return dealt;
 	}
 
 	/**

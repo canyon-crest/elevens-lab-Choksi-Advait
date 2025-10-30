@@ -1,6 +1,7 @@
 package Activity4;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -63,8 +64,10 @@ public class Deck4 {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		this.size = 0; // remove me
+		for (int k = cards.size()-1; k >= 1; k--) {
+			int r = (int)(Math.random()*(k+1));
+			Collections.swap(cards, k, r);
+		}
 	}
 
 	/**
