@@ -233,4 +233,6 @@ public class ElevensBoard7 {
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	}
+	
+	
 }
